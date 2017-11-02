@@ -7,6 +7,7 @@ fn main() {
     config.file("mdb/libraries/liblmdb/mdb.c")
           .file("mdb/libraries/liblmdb/midl.c");
     config.opt_level(2);
+    config.flag("-DMDB_PARANOID=1");
 
     if target.contains("dragonfly") {
         config.flag("-DMDB_DSYNC=O_SYNC");
