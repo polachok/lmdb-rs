@@ -963,6 +963,14 @@ pub struct DbHandle {
 unsafe impl Sync for DbHandle {}
 unsafe impl Send for DbHandle {}
 
+/// Get handle for free db
+pub fn get_freedb_handle() -> DbHandle {
+    DbHandle {
+        handle: 0,
+        flags: DbFlags::empty(),
+    }
+}
+
 #[derive(Copy, PartialEq, Debug, Eq, Clone)]
 enum TransactionState {
     Normal,   // Normal, any operation possible
